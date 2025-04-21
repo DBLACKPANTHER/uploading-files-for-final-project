@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 חיזוי גיל</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #6a4cad;
+    }
+    input[type="file"] {
+      margin-top: 20px;
+    }
+    #preview {
+      margin-top: 20px;
+      max-width: 500px;
+    }
+    #result {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      font-size: 18px;
+      color: #2b2b2b;
+    }
+    #blurredImage {
+      max-width: 500px;
+      margin-top: 20px;
+      display: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1> אפליקציית חיזוי גיל</h1>
+  <input type="file" id="imageInput" accept="image/*">
+  <div id="preview"></div>
+  <div id="result">📷 נא בחר תמונה כדי לחזות גיל</div>
+  <img id="blurredImage" src="" alt="Blurred Result Image" />
+
+  <script>
+    const input = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+    const result = document.getElementById('result');
+    const blurredImage = document.getElementById('blurredImage');
+
+    input.addEventListener('change', async () => {
+      const file = input.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async function () {
+        const base64Image = reader.result;
+        preview.innerHTML = `<img src="${base64Image}" style="max-width: 100%; border-radius: 10px;">`;
+        result.innerText = "⏳ מנתח את התמונה...";
+
+        try {
+          const response = await fetch('http://127.0.0.1:5000/predict', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: base64Image })
+          });
+
+          if (!response.ok) {
+            throw new Error("שגיאה מהשרת: " + response.status);
+          }
+
+          const data = await response.json();
+
+          if (data.error) {
+            result.innerText = `⚠ שגיאה: ${data.error}`;
+            blurredImage.style.display = "none";
+          } else {
+            const faces = data.faces;
+            if (!faces || faces.length === 0) {
+              result.innerText = "❌ לא זוהו פנים בתמונה.";
+              blurredImage.style.display = "none";
+              return;
+            }
+
+            let text = ` זוהו ${faces.length} פנים:\n`;
+            faces.forEach((f, i) => {
+              text += `פנים ${i + 1}: גיל מוערך → ${f.predicted_age_group}\n`;
+            });
+            result.innerText = text;
+
+            if (data.blurred_image) {
+              blurredImage.src = data.blurred_image;
+              blurredImage.style.display = "block";
+            }
+          }
+
+        } catch (err) {
+          console.error(err);
+          result.innerText = `⚠ שגיאה בחיבור לשרת או בעיבוד התמונה.`;
+          blurredImage.style.display = "none";
+        }
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
