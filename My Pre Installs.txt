@@ -1,0 +1,17 @@
+Install
+pip install scikit-learn
+python -m pip install scikit-learn
+.\venv\Scripts\activate
+pip install scikit-learn
+
+python -m venv .venv
+D:\MyProJect\.venv\Scripts\activate
+pip install pandas
+pip install scikit-learn tensorflow matplotlib
+pip install matplotlib opencv-python
+pip install kagglehub
+
+View the Results on TensorBoard
+cmd tensorboard --logdir="D:\projectResults\logs"
+Then go to:
+http://localhost:6006
