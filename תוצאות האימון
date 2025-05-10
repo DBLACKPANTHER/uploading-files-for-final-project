@@ -1,2 +1,21 @@
 קישור לתוצאות אימון המודל 
-UdxjwgVp0OXB8gFjt49njv24PmCz1xLD
+Epoch 1: loss=2.3873, acc=0.4002, val_loss=1.2234, val_acc=0.4846
+Epoch 2: loss=1.3549, acc=0.4461, val_loss=1.1494, val_acc=0.5139
+Epoch 3: loss=1.2585, acc=0.4786, val_loss=1.1279, val_acc=0.5234
+Epoch 4: loss=1.1993, acc=0.5009, val_loss=1.0487, val_acc=0.5683
+Epoch 5: loss=1.1610, acc=0.5142, val_loss=1.0423, val_acc=0.5658
+Epoch 6: loss=1.1462, acc=0.5198, val_loss=1.0056, val_acc=0.5856
+Epoch 7: loss=1.1030, acc=0.5290, val_loss=0.9926, val_acc=0.5913
+Epoch 8: loss=1.0837, acc=0.5381, val_loss=0.9690, val_acc=0.6071
+Epoch 9: loss=1.0559, acc=0.5472, val_loss=0.9693, val_acc=0.5945
+Epoch 10: loss=1.0444, acc=0.5473, val_loss=0.9260, val_acc=0.6261
+Epoch 11: loss=1.0159, acc=0.5572, val_loss=0.9704, val_acc=0.6075
+Epoch 12: loss=0.9970, acc=0.5574, val_loss=0.9385, val_acc=0.6156
+Epoch 13: loss=0.9556, acc=0.5798, val_loss=0.9012, val_acc=0.6284
+Epoch 14: loss=0.9531, acc=0.5752, val_loss=0.8916, val_acc=0.6381
+Epoch 15: loss=0.9360, acc=0.5828, val_loss=0.8850, val_acc=0.6343
+Epoch 16: loss=0.9355, acc=0.5843, val_loss=0.8966, val_acc=0.6265
+Epoch 17: loss=0.9267, acc=0.5863, val_loss=0.9035, val_acc=0.6310
+Epoch 18: loss=0.8987, acc=0.5940, val_loss=0.8650, val_acc=0.6447
+Epoch 19: loss=0.8916, acc=0.5941, val_loss=0.8865, val_acc=0.6373
+Epoch 20: loss=0.8950, acc=0.5885, val_loss=0.8794, val_acc=0.6404
