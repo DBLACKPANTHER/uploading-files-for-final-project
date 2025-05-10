@@ -1,4 +1,4 @@
-קישור לתוצאות אימון המודל 
+המחשה של תוצאות האימון
 Epoch 1: loss=2.3873, acc=0.4002, val_loss=1.2234, val_acc=0.4846
 Epoch 2: loss=1.3549, acc=0.4461, val_loss=1.1494, val_acc=0.5139
 Epoch 3: loss=1.2585, acc=0.4786, val_loss=1.1279, val_acc=0.5234
