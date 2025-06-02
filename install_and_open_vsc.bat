@@ -3,7 +3,7 @@ SETLOCAL
 
 cd /d D:\Newcode
 
-echo 🔄 Creating a clean virtual environment...
+echo Creating a clean virtual environment...
 python -m venv venv
 if %errorlevel% neq 0 (
     echo  Failed to create venv. Make sure Python is installed and on PATH.
