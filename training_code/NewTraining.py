@@ -59,12 +59,11 @@ if os.path.exists(dataset_dir):
     image_paths = [os.path.join(dataset_dir, f) for f in os.listdir(dataset_dir) if f.lower().endswith(".jpg")]
 
 if not image_paths:
-    raise FileNotFoundError(f"❌ No .jpg images found in: {dataset_dir}")
+    raise FileNotFoundError(f"No .jpg images found in: {dataset_dir}")
 
 ages = [int(os.path.basename(path).split("_")[0]) for path in image_paths]
 age_groups = [map_age_to_group(age) for age in ages]
 
-# ✅ Fix: convert labels to strings for class_mode="sparse"
 df = pd.DataFrame({
     "path": image_paths,
     "label": [str(g) for g in age_groups]
