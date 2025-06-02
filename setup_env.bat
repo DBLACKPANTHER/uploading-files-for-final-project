@@ -21,7 +21,7 @@ pip install tensorflow==2.13.0 keras==2.13.1 retina-face flask opencv-python pil
 
 echo  Done installing.
 
-echo 🛠 Creating .vscode/launch.json for VS Code...
+echo  Creating .vscode/launch.json for VS Code...
 mkdir .vscode >nul 2>&1
 
 (
