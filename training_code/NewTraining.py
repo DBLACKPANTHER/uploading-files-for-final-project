@@ -107,11 +107,16 @@ df = pd.DataFrame(augmented_data, columns=["filename", "age"])
 log(f"Parsed and augmented to {len(df)} samples")
 
 def age_to_class(age):
-    if age <= 20: return 0
-    elif age <= 40: return 1
-    elif age <= 60: return 2
-    elif age <= 80: return 3
-    else: return 4
+    if age <= 18:
+        return 0
+    elif age <= 30:
+        return 1
+    elif age <= 50:
+        return 2
+    elif age <= 70:
+        return 3
+    else:
+        return 4
 
 df["age_class"] = df["age"].apply(age_to_class)
 df = shuffle(df, random_state=42)
