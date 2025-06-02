@@ -120,7 +120,7 @@ def predict():
         })
 
     except Exception as e:
-        print("❌ Error during prediction:", str(e))
+        print(" Error during prediction:", str(e))
         return jsonify({"error": str(e)}), 500
 
 # === Start server ===
