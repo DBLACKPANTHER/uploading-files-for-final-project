@@ -1,28 +1,27 @@
-התקנה מהירה בקובץ אחד (מומלץ)
-ניתן פשוט להשתמש בקובץ install_full_env.bat שנמצא בריפוזיטורי. הקובץ הזה:
+# גילוי גיל וטשטוש פנים – UTKFace Project
 
-בודק האם מותקן Visual Studio Code
+## Dataset
+הפרויקט משתמש במערך הנתונים [UTKFace Dataset](https://www.kaggle.com/datasets/jangedoo/utkface-new)
 
-יוצר סביבה וירטואלית (venv)
+## התקנה מהירה (מומלץ)
+הקובץ `install_full_env.bat` מבצע עבורך:
+- יצירת סביבה וירטואלית
+- התקנת כל הספריות הנדרשות
+- פתיחת VS Code עם הסביבה הנכונה
 
-מתקין את כל הספריות לפי הגרסאות המדויקות מתוך הקובץ requirements.txt
+> יש להריץ כ־Administrator
 
-קושר את הסביבה ל־VS Code ומפעיל אותו אוטומטית
+## אפשרות ידנית (לשליטה מלאה)
+ניתן להפעיל לפי הסדר:
+1. `install_and_open_vsc.bat`
+2. `setup_env.bat`
+3. `requirements.txt`
 
-איך להשתמש:
-לחץ קליק ימני על install_full_env.bat ובחר Run as administrator
-המתן לסיום – והמערכת תהיה מוכנה להרצה מיידית.
+## מדריך מלא
+📄 ראו [INSTALLATION.md](INSTALLATION.md) להסבר עם קוד ודוגמאות
 
-התקנה ידנית בקבצים נפרדים (למתקדמים)
-אם ברצונך להריץ את השלבים ידנית, השתמש בקבצים לפי הסדר הבא:
+---
 
-install_and_open_vsc.bat
-בודק מיקום ומוודא ש־VS Code מותקן. מפעיל את סביבת העבודה.
-
-setup_env.bat
-יוצר את סביבת venv, מפעיל אותה ומתקין את כל הספריות.
-
-requirements.txt
-מכיל את כל הספריות הדרושות להרצת המערכת, כולל גרסאות מדויקות.
-
-לאחר כל השלבים, הקוד מוכן להפעלה דרך הקבצים FlaskApp.py או NewTraining.py.
+## סביבת עבודה נדרשת
+- Python 3.11.5
+- Visual Studio Code
